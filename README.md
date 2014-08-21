@@ -53,4 +53,4 @@ cfg = SETTINGS[NAME]
 sms_transport(**cfg).send(PHONE, MSG)
 ```
 <br>
-here it returns "Send message "qwerty" for number 123"
+here it returns 'Send message "qwerty" for number 123'
