@@ -1,17 +1,17 @@
 INSTALL
 -------
 
-<code>
+```
     python setup.py install
-</code>
+````
 
 UNINSTALL
 ---------
 
-<code>
+```
     python setup.py install --record files.txt
     cat files.txt | xargs rm -rf
-</code>
+```
 
 <br>
 <br>
@@ -21,7 +21,7 @@ Both operations can require root privilege
 USAGE
 ---------
 
-<code>
+```py
 SETTINGS = {
     "default": {
         "BACKEND": "SmsTransportSimple",
@@ -41,14 +41,16 @@ SETTINGS = {
         }
     },
 }
+
 from libsms import sms_transport
 
-NAME = "dummy"
-PHONE = "123"
-MSG = "qwerty"
+NAME = "dummy"<br>
+PHONE = "123"<br>
+MSG = "qwerty"<br>
 
 
 cfg = SETTINGS[NAME]
 sms_transport(**cfg).send(PHONE, MSG)
-#here it returns "Send message "qwerty" for number 123"
-</code>
+```
+<br>
+here it returns "Send message "qwerty" for number 123"
