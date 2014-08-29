@@ -2,7 +2,25 @@
 # -*- coding: utf-8 -*-
 import unittest
 
-from libsms import sms_transport
+import libsms
+
+class SmsTransportFactory(object):
+    """Фабрика для SmsTransport"""
+    def __init__(self):
+        pass
+
+    def get_transport(self, transport_name):
+        """Возвращает нужный класс"""
+        return getattr(libsms, transport_name)
+
+
+def sms_transport(BACKEND, PARAMS=None):
+    """Возвращает экземпляр нужного класса"""
+    transport = SmsTransportFactory().get_transport(BACKEND)
+    return transport(PARAMS)
+
+
+
 
 SETTINGS = {
     "dummy": {"BACKEND": "SmsTransportJubber"},
