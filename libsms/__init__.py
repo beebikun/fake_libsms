@@ -1,17 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
-class SmsTransportFactory(object):
-    """Фабрика для SmsTransport"""
-    def __init__(self):
-        pass
-
-    def get_transport(self, transport_name):
-        """Возвращает нужный класс"""
-        return globals()[transport_name]
-
-
 class SmsTransport(object):
     def __init__(self, params=None):
         self.params = params
@@ -36,8 +25,3 @@ class SmsTransportGW1(SmsTransport):
 class SmsTransportGW2(SmsTransport):
     pass
 
-
-def sms_transport(BACKEND, PARAMS=None):
-    """Возвращает экземпляр нужного класса"""
-    transport = SmsTransportFactory().get_transport(BACKEND)
-    return transport(PARAMS)
